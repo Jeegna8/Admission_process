@@ -1,4 +1,5 @@
 from driver_call import *
+from home_page import *
 
 
 def test_student_login(driver):
@@ -9,7 +10,7 @@ def test_student_login(driver):
     password = driver.find_element(By.NAME, "password")
     login_button = driver.find_element(By.NAME, "submit")
 
-    username.send_keys("pratik@example.com")
+    username.send_keys("rina@example.com")
     sleep(2)
     password.send_keys("admin@123")
     sleep(2)
@@ -17,7 +18,7 @@ def test_student_login(driver):
     sleep(2)
 
     student_page_title = driver.find_element(By.CSS_SELECTOR, ".hidden-xs b")
-    assert student_page_title.text == "pratik@example.com"
+    assert student_page_title.text == "rina@example.com"
 
 
 

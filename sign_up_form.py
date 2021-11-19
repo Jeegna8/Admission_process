@@ -1,4 +1,5 @@
 from driver_call import *
+from home_page import *
 sign_up_locator = By.LINK_TEXT, "Sign up now"
 
 
@@ -17,7 +18,6 @@ def test_sign_up(driver):
 
     login_page_title = driver.title
     assert login_page_title == 'Login'  # we successfully signed up
-
 
 def sign_up_form(driver):
 
