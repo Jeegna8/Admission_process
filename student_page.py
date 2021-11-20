@@ -121,15 +121,14 @@ def back_to_student_page(driver, username):
 
 
 def logout(driver):
-    user = driver.find_element(*By.CLASS_NAME, "dropdown")
-    logout_ = driver.find_element(*By.LINK_TEXT, "Logout")
+    user_id_locator = By.CLASS_NAME, "dropdown"
+    user_id = driver.find_element(*user_id_locator)
+    user_id.click()
 
-    user.click()
-    sleep(2)
-    logout_.click()
-    sleep(2)
-
-
+    log_out_locator = By.LINK_TEXT, "Logout"
+    log_out = driver.find_element(*log_out_locator)
+    log_out.click()
+    sleep(3)
 
 
 
