@@ -34,6 +34,8 @@ def test_student_login(driver):
     student_page_title = driver.find_element(By.CSS_SELECTOR, ".hidden-xs b")
     assert student_page_title.text == user_name
 
+    logout(driver)
+
 
 @pytest.mark.enquiryform
 def test_enquiry_form(driver):
@@ -51,7 +53,7 @@ def test_enquiry_form(driver):
 
 
 @pytest.mark.admission_form
-def test_enquiry_form(driver):
+def test_admission_form(driver):
 
     test_student_login(driver)
     find_admission_form(driver)
