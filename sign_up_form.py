@@ -1,5 +1,5 @@
-from driver_call import *
 from home_page import *
+from student_login import open_student_page
 
 
 def test_sign_up(driver):

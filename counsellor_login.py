@@ -1,12 +1,11 @@
 from driver_call import *
 from home_page import *
 
+
 def test_counsellor_login(driver):
     open_home_page(driver)
     open_counsellor_page(driver)
 
-
-    # on login page
     mail = driver.find_element(By.NAME, "mail")
     password = driver.find_element(By.NAME, "pass")
     login_button = driver.find_element(By.NAME, "btn")
@@ -22,5 +21,10 @@ def test_counsellor_login(driver):
     assert counsellor_account_title.text == "Nilam Trivedi"
 
 
+def open_counsellor_page(driver):
+    counsellor_module_locator = By.LINK_TEXT, "Councellor"
+    counsellor_module = driver.find_element(*counsellor_module_locator)
+    counsellor_module.click()
+    sleep(2)
 
 
