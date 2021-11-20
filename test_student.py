@@ -1,5 +1,6 @@
 import pytest
 from student_page import *
+from admission_page import *
 
 
 @pytest.mark.signup
@@ -49,5 +50,31 @@ def test_enquiry_form(driver):
     back_to_student_page(driver, "trisha@example.com")   # check username ,if we are back to student dashboard
 
 
+@pytest.mark.admission_form
+def test_enquiry_form(driver):
+
+    test_student_login(driver)
+    find_admission_form(driver)
+
+    ad_name(driver, "Trisha", "Nayak")
+    ad_contact(driver, "9988776655")
+    ad_email_id(driver, "trisha@example.com")
+    gender(driver, "F")
+    dob(driver, "23-05-1998")
+    guardian_name(driver, "Hari")
+    guardian_contact(driver, "9988776655")
+    address(driver, "Rajkot")
+    country(driver, "India")
+    state(driver, "Gujarat")
+    city(driver, "Rajkot")
+    pincode(driver, "123456")
+    degree_field(driver, "B.Arch")
+    alert_message(driver)
+    course(driver, "Research Architect")
+
+    enroll_click(driver)
+    confirmation_alert(driver)
+
+    back_to_student_page(driver, "trisha@example.com")  # check username ,if we are back to student dashboard
 
 
