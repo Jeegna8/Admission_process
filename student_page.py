@@ -120,6 +120,7 @@ def back_to_student_page(driver, username):
     assert student_page_title.text == username
 
 
+"""student logout feature"""
 def logout(driver):
     user_id_locator = By.CLASS_NAME, "dropdown"
     user_id = driver.find_element(*user_id_locator)
@@ -131,6 +132,7 @@ def logout(driver):
     sleep(3)
 
 
+"""functions for query form"""
 def find_query_form(driver):
     query_form_locator = By.LINK_TEXT, "Student Query"
     query_form = driver.find_element(*query_form_locator)
