@@ -12,8 +12,8 @@ def test_sign_up(driver):
     signup_page_title = driver.title
     assert signup_page_title == 'Sign Up'
 
-    signup_name(driver, "Trisha")
-    signup_username(driver, "trisha@example.com")
+    signup_name(driver, "Kathan")
+    signup_username(driver, "kathan@example.com")
     signup_password(driver, "admin@123")
     signup_confirm_password(driver, "admin@123")
     signup_submit(driver)
@@ -34,7 +34,6 @@ def test_student_login(driver):
     student_page_title = driver.find_element(By.CSS_SELECTOR, ".hidden-xs b")
     assert student_page_title.text == user_name
 
-    logout(driver)
 
 
 @pytest.mark.enquiryform
@@ -78,5 +77,21 @@ def test_admission_form(driver):
     confirmation_alert(driver)
 
     back_to_student_page(driver, "trisha@example.com")  # check username ,if we are back to student dashboard
+
+
+@pytest.mark.query_form
+def test_query_form(driver):
+    test_student_login(driver)
+    find_query_form(driver)
+
+    email_id = "trisha@example.com"
+    query = "I have query regarding selected courses."
+
+    que_email_id(driver, email_id)
+    type_query(driver, query)
+    send_query(driver)
+
+
+
 
 

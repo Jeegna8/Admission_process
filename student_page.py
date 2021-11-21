@@ -131,10 +131,32 @@ def logout(driver):
     sleep(3)
 
 
+def find_query_form(driver):
+    query_form_locator = By.LINK_TEXT, "Student Query"
+    query_form = driver.find_element(*query_form_locator)
+    query_form.click()
 
 
+def que_email_id(driver, email_id):
+    email_locator = By.NAME, 'email'
+    email = driver.find_element(*email_locator).get_attribute("value")
+    assert email == email_id
+    sleep(2)
 
 
+def type_query(driver, query):
+    query_text_locator = By.NAME, "stu_query"
+    query_text = driver.find_element(*query_text_locator)
+    query_text.send_keys(query)
+    sleep(3)
 
 
+def send_query(driver):
+    send_button_locator = By.TAG_NAME, "button"
+    send_button = driver.find_element(*send_button_locator)
+    send_button.click()
+    sleep(2)
+
+    assert driver.title == "Your Queries"
+    sleep(5)
 
