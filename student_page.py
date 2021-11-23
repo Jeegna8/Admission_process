@@ -21,6 +21,12 @@ def student_login_form(driver, user_name, pass_word):
     sleep(2)
 
 
+def login_error_msg(driver):
+    error_msg_locator = By.XPATH, '/html/body/div/form/div[2]/span'
+    error_msg = driver.find_element(*error_msg_locator).text
+    return error_msg
+
+
 """functions of sign up form"""
 def open_sign_up_form(driver):
     sign_up_locator = By.LINK_TEXT, "Sign up now"
@@ -64,6 +70,8 @@ def signup_submit(driver):
     sleep(3)
 
 
+"""functions for enquiry form"""
+
 def find_enquiry_form(driver):
     enquiry_form_locator = By.LINK_TEXT, "Enquiry Form"
     enquiry_form_open = driver.find_element(*enquiry_form_locator)
@@ -71,7 +79,6 @@ def find_enquiry_form(driver):
     sleep(2)
 
 
-"""functions for enquiry form"""
 def enq_name(driver, student_name):
     name_locator = By.NAME, "fname"
     name = driver.find_element(*name_locator)
@@ -161,4 +168,47 @@ def send_query(driver):
 
     assert driver.title == "Your Queries"
     sleep(5)
+
+
+"""forget password fonctions"""
+def find_forget_password(driver):
+    forget_password_locator = By.LINK_TEXT, "forget password"
+    forget_password = driver.find_element(*forget_password_locator)
+    forget_password.click()
+    sleep(2)
+
+
+def reset_page(driver):
+    assert driver.title == "Reset Password"
+    sleep(2)
+
+
+def forget_pass_username(driver, u_name):
+    username_locator = By.NAME, "username"
+    username = driver.find_element(*username_locator)
+    username.send_keys(u_name)
+    sleep(2)
+
+
+def forget_pass_new_password(driver, new):
+    password_locator = By.NAME, "new_password"
+    password = driver.find_element(*password_locator)
+    password.send_keys(new)
+    sleep(2)
+
+
+def forget_pass_confirm_password(driver, confirm):
+    confirm_password_locator = By.NAME, "confirm_password"
+    confirm_ = driver.find_element(*confirm_password_locator)
+    confirm_.send_keys(confirm)
+    sleep(2)
+
+
+def forget_pass_submit(driver):
+    submit_button_locator = By.XPATH, '/html/body/div/form/div[4]/input'
+    submit_button = driver.find_element(*submit_button_locator)
+    submit_button.click()
+    sleep(3)
+
+
 

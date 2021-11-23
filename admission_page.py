@@ -112,7 +112,6 @@ def degree_field(driver, degree):
 
 def alert_message(driver):
     alert = driver.switch_to.alert
-    # assert alert.text == f"You selected {degree}."
     alert.accept()
     sleep(2)
 
